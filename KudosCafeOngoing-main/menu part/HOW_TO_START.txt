@@ -1,0 +1,105 @@
+How to Start the Kudos Cafe Menu Application
+
+This document provides instructions on how to start the Kudos Cafe Menu application from the command line, as well as within VS Code and WebStorm.
+
+--- 
+
+**1. From the Command Line**
+
+To start the application from your terminal or command prompt, follow these steps:
+
+1.  **Navigate to the project directory:**
+    Open your terminal or command prompt and change the directory to the `menu part` folder of the project:
+    ```bash
+    cd d:\Personal\SCHOOL\WEB PROG\backups\redesign\KudosCafeOngoing-main\KudosCafeOngoing-main\menu part
+    ```
+
+2.  **Install dependencies (if you haven't already):**
+    If this is your first time setting up the project or if you've pulled recent changes, install the necessary Node.js packages:
+    ```bash
+    npm install
+    ```
+
+3.  **Start the development server:**
+    Once dependencies are installed, you can start the application:
+    ```bash
+    npm start
+    ```
+    The server should start, and you will typically see a message indicating that the server is running, often on `http://localhost:4000`.
+
+4.  **Open in browser:**
+    Open your web browser and navigate to `http://localhost:4000` to view the application.
+
+---
+
+**2. In VS Code**
+
+To run the application using Visual Studio Code, follow these steps:
+
+1.  **Open the project in VS Code:**
+    Launch VS Code and open the `KudosCafeOngoing-main` folder. You can do this by going to `File > Open Folder...` and selecting `d:\Personal\SCHOOL\WEB PROG\backups\redesign\KudosCafeOngoing-main`.
+
+2.  **Open the integrated terminal:**
+    In VS Code, open the integrated terminal by going to `Terminal > New Terminal` or by pressing `Ctrl+` (backtick).
+
+3.  **Navigate to the `menu part` directory:**
+    In the terminal, change to the `menu part` directory:
+    ```bash
+    cd menu part
+    ```
+
+4.  **Install dependencies (if needed):**
+    If you haven't installed dependencies, run:
+    ```bash
+    npm install
+    ```
+
+5.  **Start the development server:**
+    Run the start command:
+    ```bash
+    npm start
+    ```
+
+6.  **View the application:**
+    The server will start, and you can open `http://localhost:4000` in your browser.
+
+---
+
+**3. In WebStorm**
+
+To run the application using WebStorm, follow these steps:
+
+1.  **Open the project in WebStorm:**
+    Launch WebStorm and open the `KudosCafeOngoing-main` folder. You can do this by going to `File > Open...` and selecting `d:\Personal\SCHOOL\WEB PROG\backups\redesign\KudosCafeOngoing-main`.
+
+2.  **Open the Terminal tool window:**
+    In WebStorm, open the Terminal tool window by going to `View > Tool Windows > Terminal` or by pressing `Alt+F12`.
+
+3.  **Navigate to the `menu part` directory:**
+    In the terminal, change to the `menu part` directory:
+    ```bash
+    cd menu part
+    ```
+
+4.  **Install dependencies (if needed):**
+    If you haven't installed dependencies, run:
+    ```bash
+    npm install
+    ```
+
+5.  **Start the development server:**
+    Run the start command:
+    ```bash
+    npm start
+    ```
+
+6.  **View the application:**
+    The server will start, and you can open `http://localhost:4000` in your browser.
+
+---
+
+**Important Notes:**
+
+*   Ensure you have Node.js and npm installed on your system.
+*   If you encounter any issues, check the terminal output for error messages.
+*   The port `4000` is the default, but it might change if another application is already using it. Check the terminal output for the exact URL.

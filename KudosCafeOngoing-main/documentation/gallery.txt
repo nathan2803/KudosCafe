@@ -1,0 +1,19 @@
+Gallery Page Documentation
+=======================
+
+Functionality:
+- Displays a collection of images or media
+- May include filtering or categorization features
+- Supports user interaction like zooming or favoriting
+
+Code Structure:
+- Main component in gallery.js
+- Uses React for rendering
+- Image data fetched from API or local storage
+- Styled with CSS modules
+
+How to Run:
+1. Ensure Node.js is installed
+2. Run 'npm install' to install dependencies
+3. Start development server with 'npm run dev'
+4. Gallery page will be available at /gallery route

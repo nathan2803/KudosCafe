@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kudos Café & Resto Menu</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="./images/logo solo.svg">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="../project/landing.html" class="logo-link">
+                <img src="aux images/logo solo.svg" alt="Kudos Logo" class="header-logo">
+            </a>
+            <h1 class="restaurant-title">
+                Kudos Caf<a href="admin.html" class="admin-link">a</a>é & Resto
+              </h1>
+              
+            <div class="cart-icon-wrapper">
+                <i class="fa-solid fa-cart-shopping cart-icon"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="category-nav" id="categoryNav">
+            <a href="index.html" class="nav-link" data-category="home">Home</a>
+            <a href="#appetizer" class="nav-link active" data-category="appetizer">Appetizer</a>
+            <a href="#pasta" class="nav-link" data-category="pasta">Pasta</a>
+            <a href="#main-course" class="nav-link" data-category="main-course">Main Course</a>
+            <a href="#dessert" class="nav-link" data-category="dessert">Dessert</a>
+            <a href="#drinks" class="nav-link" data-category="drinks">Drinks</a>
+            <a href="#" class="nav-link orders-link" id="viewOrderBtn">
+                <i class="fa-solid fa-receipt"></i>
+                View Order
+            </a>
+        </nav>
+
+        <main class="main-content">
+            <div class="menu-container" id="menuContainer">
+                <!-- Menu categories and items will be loaded dynamically -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Item Modal -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content item-modal">
+            <span class="close" id="closeItemModal">&times;</span>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="" class="modal-image">
+                <div class="modal-image-overlay"></div>
+            </div>
+            <div class="modal-info">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <p id="modalPrice" class="modal-price"></p>
+                <p id="modalDescription" class="modal-description"></p>
+                <div class="quantity-selector">
+                    <label for="itemQuantity">Quantity</label>
+                    <div class="quantity-controls">
+                        <button type="button" id="decreaseQuantity" class="quantity-btn">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input type="number" id="itemQuantity" min="1" value="1">
+                        <button type="button" id="increaseQuantity" class="quantity-btn">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <button id="addToOrder" class="btn-primary">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    Add to Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content cart-modal">
+            <span class="close" id="closeCartModal">&times;</span>
+            <h2 class="modal-title">Your Order</h2>
+            
+            <div id="cartEmpty" class="cart-empty">
+                <i class="fa-solid fa-shopping-basket empty-cart-icon"></i>
+                <p>Your cart is empty</p>
+                <button id="startOrderingBtn" class="btn-secondary">Start Ordering</button>
+            </div>
+            
+            <div id="cartItems" class="cart-items-container">
+                <!-- Cart items will be loaded dynamically -->
+            </div>
+            
+            <div id="orderSummary" class="order-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotalAmount">₱0.00</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total:</span>
+                    <span id="totalAmount">₱0.00</span>
+                </div>
+            </div>
+            
+            <div class="cart-actions">
+                <button id="clearCartBtn" class="btn-secondary">Clear Cart</button>
+                <button id="proceedToBookingBtn" class="btn-primary">Proceed to Booking</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content booking-modal">
+            <span class="close" id="closeBookingModal">&times;</span>
+            <h2 class="modal-title">Make a Reservation</h2>
+            
+            <div class="booking-progress">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Details</div>
+                </div>
+                <div class="progress-bar"></div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Review</div>
+                </div>
+                <div class="progress-bar"></div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Payment</div>
+                </div>
+            </div>
+            
+            <div class="booking-steps">
+                <!-- Step 1: Booking Form -->
+                <div id="bookingStep1" class="booking-step active">
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required autocomplete="name">
+                            <div class="error-message" id="nameError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact">Contact Number</label>
+                            <input type="tel" id="contact" required autocomplete="tel">
+                            <div class="error-message" id="contactError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address (Optional)</label>
+                            <input type="email" id="email" autocomplete="email">
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" required>
+                                <div class="error-message" id="dateError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="time">Time</label>
+                                <input type="time" id="time" required>
+                                <div class="error-message" id="timeError"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests">Number of Guests</label>
+                            <input type="number" id="guests" min="1" value="2" required>
+                            <div class="error-message" id="guestsError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="special">Special Requests (Optional)</label>
+                            <textarea id="special" rows="3"></textarea>
+                        </div>
+                    </form>
+                    
+                    <div class="step-actions">
+                        <button id="cancelBookingBtn" class="btn-secondary">Cancel</button>
+                        <button id="nextToReviewBtn" class="btn-primary">Next: Review Order</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Order Review -->
+                <div id="bookingStep2" class="booking-step">
+                    <div class="review-section">
+                        <h3>Reservation Details</h3>
+                        <div class="detail-row">
+                            <span class="detail-label">Name:</span>
+                            <span id="reviewName" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Contact:</span>
+                            <span id="reviewContact" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Date & Time:</span>
+                            <span id="reviewDateTime" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Guests:</span>
+                            <span id="reviewGuests" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row" id="reviewSpecialRequests">
+                            <span class="detail-label">Special Requests:</span>
+                            <span id="reviewSpecial" class="detail-value"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="review-section">
+                        <h3>Order Items</h3>
+                        <div id="reviewItems" class="review-items"></div>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="reviewSubtotal">₱0.00</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total Amount:</span>
+                            <span id="reviewTotal">₱0.00</span>
+                        </div>
+                        <div class="summary-row deposit-row">
+                            <span>Required Deposit (25%):</span>
+                            <span id="reviewDeposit">₱0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button id="backToDetailsBtn" class="btn-secondary">Back to Details</button>
+                        <button id="nextToPaymentBtn" class="btn-primary">Next: Payment Options</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Payment Options -->
+                <div id="bookingStep3" class="booking-step">
+                    <div class="payment-info">
+                        <h3>Select Payment Option</h3>
+                        <p>To secure your reservation, please select a payment method for the 25% deposit.</p>
+                        
+                        <div class="payment-amount">
+                            <div class="amount-row">
+                                <span>Total Bill:</span>
+                                <span id="paymentTotal">₱0.00</span>
+                            </div>
+                            <div class="amount-row highlight">
+                                <span>Required Deposit (25%):</span>
+                                <span id="paymentDeposit">₱0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <div class="payment-method" id="payNowMethod">
+                            <div class="method-radio">
+                                <input type="radio" id="payNow" name="paymentMethod" value="payNow" checked>
+                                <label for="payNow">Pay Now</label>
+                            </div>
+                            <p class="method-description">Pay deposit online to secure your reservation immediately</p>
+                            <div class="payment-icons">
+                                <i class="fa-brands fa-cc-visa"></i>
+                                <i class="fa-brands fa-cc-mastercard"></i>
+                                <i class="fa-brands fa-cc-amex"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-method" id="payVenueMethod">
+                            <div class="method-radio">
+                                <input type="radio" id="payVenue" name="paymentMethod" value="payVenue">
+                                <label for="payVenue">Pay at Venue</label>
+                            </div>
+                            <p class="method-description">Pay deposit when you arrive at the restaurant</p>
+                            <div class="payment-icons">
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                <i class="fa-solid fa-credit-card"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button id="backToReviewBtn" class="btn-secondary">Back to Review</button>
+                        <button id="completeBookingBtn" class="btn-primary">Complete Reservation</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Confirmation -->
+                <div id="bookingStep4" class="booking-step">
+                    <div class="confirmation">
+                        <div class="confirmation-icon">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <h3>Reservation Confirmed!</h3>
+                        <p>Your table has been reserved successfully.</p>
+                        <div class="confirmation-details">
+                            <div class="confirmation-detail">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <span id="confirmDate"></span>
+                            </div>
+                            <div class="confirmation-detail">
+                                <i class="fa-solid fa-clock"></i>
+                                <span id="confirmTime"></span>
+                            </div>
+                            <div class="confirmation-detail">
+                                <i class="fa-solid fa-user-group"></i>
+                                <span id="confirmGuests"></span> guests
+                            </div>
+                        </div>
+                        <p class="payment-status" id="paymentStatus"></p>
+                        <p class="confirmation-id">Reservation ID: <span id="reservationId"></span></p>
+                        <button id="doneBookingBtn" class="btn-primary">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

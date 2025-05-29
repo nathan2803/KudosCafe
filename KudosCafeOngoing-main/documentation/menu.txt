@@ -1,0 +1,19 @@
+Menu Page Documentation
+=======================
+
+Functionality:
+- Displays available food/drink items
+- May include categories or filters
+- Supports adding items to cart/order
+
+Code Structure:
+- Main component in menu.js
+- Uses React for rendering
+- Item data fetched from API or local storage
+- Styled with CSS modules
+
+How to Run:
+1. Ensure Node.js is installed
+2. Run 'npm install' to install dependencies
+3. Start development server with 'npm run dev'
+4. Menu page will be available at /menu route

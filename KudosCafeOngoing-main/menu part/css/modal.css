@@ -1,0 +1,423 @@
+/* Modal Base Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 50px auto;
+    padding: 0;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform var(--transition-medium);
+    overflow: hidden;
+    max-width: 90%;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    transition: background-color var(--transition-fast);
+}
+
+.close:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Item Modal Styles */
+.item-modal {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    width: 100%;
+}
+
+.modal-image-container {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+}
+
+.modal-info {
+    padding: var(--spacing-xl);
+}
+
+.modal-title {
+    margin-top: 0;
+}
+
+.modal-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: var(--spacing-md) 0;
+}
+
+.modal-price::before {
+    content: '₱';
+    margin-right: 2px;
+}
+
+.modal-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.quantity-selector {
+    margin-bottom: var(--spacing-xl);
+}
+
+.quantity-selector label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.quantity-btn:hover {
+    background-color: var(--primary-light);
+}
+
+#itemQuantity {
+    width: 60px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    -moz-appearance: textfield;
+}
+
+#itemQuantity::-webkit-outer-spin-button,
+#itemQuantity::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#addToOrder {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1.125rem;
+}
+
+/* Cart Modal Styles */
+.cart-modal {
+    max-width: 600px;
+    width: 100%;
+    padding: var(--spacing-xl);
+}
+
+.cart-items-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: var(--spacing-lg);
+}
+
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-xxl) 0;
+}
+
+.empty-cart-icon {
+    font-size: 4rem;
+    color: var(--text-secondary);
+    opacity: 0.3;
+    margin-bottom: var(--spacing-lg);
+}
+
+.cart-empty p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.cart-item {
+    display: flex;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.cart-item-price {
+    color: var(--primary-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-price::before {
+    content: '₱';
+    margin-right: 2px;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.cart-quantity-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.cart-quantity-btn:hover {
+    background-color: var(--primary-light);
+}
+
+.cart-item-quantity-value {
+    font-weight: 500;
+    width: 30px;
+    text-align: center;
+}
+
+.cart-item-subtotal {
+    text-align: right;
+    padding-left: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cart-item-subtotal-value {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.cart-item-subtotal-value::before {
+    content: '₱';
+    margin-right: 2px;
+}
+
+.cart-item-remove {
+    position: absolute;
+    top: var(--spacing-md);
+    right: 0;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.cart-item-remove:hover {
+    color: var(--error-color);
+}
+
+.order-summary {
+    background-color: var(--bg-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+}
+
+.summary-row:last-child {
+    margin-bottom: 0;
+}
+
+.total-row {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.cart-actions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.cart-actions button {
+    flex: 1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 30px auto;
+        max-width: 95%;
+    }
+
+    .item-modal {
+        flex-direction: column;
+    }
+
+    .modal-image-container {
+        height: 250px;
+    }
+
+    .modal-info {
+        padding: var(--spacing-lg);
+    }
+
+    .quantity-controls {
+        gap: var(--spacing-sm);
+    }
+
+    .cart-modal {
+        padding: var(--spacing-lg);
+    }
+
+    .cart-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 20px auto;
+    }
+
+    .modal-image-container {
+        height: 200px;
+    }
+
+    .modal-info {
+        padding: var(--spacing-md);
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .modal-price {
+        font-size: 1.25rem;
+    }
+
+    .cart-item-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .cart-modal {
+        padding: var(--spacing-md);
+    }
+}

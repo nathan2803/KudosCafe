@@ -1,0 +1,72 @@
+About Section Documentation
+===========================
+
+1. Component Structure
+- Hero section with background image
+- Mission statement text block
+- Team member profiles
+- Interactive hover effects
+
+2. Technical Implementation
+```jsx
+// AboutSection.jsx
+export default function AboutSection() {
+  return (
+    <section className="about-section">
+      <div className="hero-banner">
+        <h1>Our Story</h1>
+      </div>
+      
+      <div className="mission-statement">
+        <h2>Dedicated to Excellence</h2>
+        <p>Founded in 2023, we strive to deliver exceptional experiences...</p>
+      </div>
+
+      <div className="team-grid">
+        {teamMembers.map(member => (
+          <div key={member.id} className="team-card">
+            <img src={member.photo} alt={member.name} />
+            <h3>{member.name}</h3>
+            <p>{member.role}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+```
+
+3. Styling Approach
+```css
+/* about.css */
+.about-section {
+  padding: 4rem 5%;
+}
+
+.hero-banner {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('/about-banner.jpg');
+  background-size: cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+```
+
+4. Interactive Features
+- Smooth hover transitions on team cards
+- Parallax scrolling effect on hero banner
+- Responsive grid layout for team members

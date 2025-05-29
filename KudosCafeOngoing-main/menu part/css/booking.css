@@ -1,0 +1,382 @@
+/* Booking Modal Styles */
+.booking-modal {
+    max-width: 800px;
+    width: 100%;
+    padding: var(--spacing-xl);
+}
+
+/* Progress Steps */
+.booking-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-lg);
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+.progress-step.active .step-number {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.progress-step.completed .step-number {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.step-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: color var(--transition-medium);
+}
+
+.progress-step.active .step-label,
+.progress-step.completed .step-label {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.progress-bar {
+    height: 4px;
+    flex: 1;
+    background-color: var(--border-color);
+    position: relative;
+    margin: 0 -20px;
+    z-index: 0;
+    transform: translateY(-20px);
+}
+
+.progress-step.completed + .progress-bar {
+    background-color: var(--success-color);
+}
+
+/* Booking Steps Container */
+.booking-steps {
+    position: relative;
+    min-height: 400px;
+}
+
+.booking-step {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.booking-step.active {
+    display: block;
+}
+
+/* Step 1: Booking Form */
+#bookingForm {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Step Actions */
+.step-actions {
+    display: flex;
+    justify-content: space-between;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Step 2: Review Order */
+.review-section {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.review-section h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-dark);
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: var(--spacing-sm);
+}
+
+.detail-label {
+    font-weight: 500;
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.detail-value {
+    flex: 1;
+}
+
+.review-items {
+    margin-bottom: var(--spacing-lg);
+}
+
+.review-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-item-details {
+    flex: 1;
+}
+
+.review-item-title {
+    font-weight: 500;
+}
+
+.review-item-quantity {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.review-item-price {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.deposit-row {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* Step 3: Payment Options */
+.payment-info {
+    margin-bottom: var(--spacing-lg);
+}
+
+.payment-info h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+.payment-info p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.payment-amount {
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+}
+
+.amount-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+}
+
+.amount-row.highlight {
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 1.125rem;
+}
+
+.payment-methods {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.payment-method {
+    flex: 1;
+    background-color: white;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.payment-method:hover {
+    transform: translateY(-4px);
+}
+
+.payment-method.selected {
+    border-color: var(--primary-color);
+}
+
+.method-radio {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.method-radio input {
+    display: none;
+}
+
+.method-radio label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.method-radio label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.method-radio input:checked + label::before {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    box-shadow: inset 0 0 0 4px white;
+}
+
+.method-description {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.payment-icons {
+    display: flex;
+    gap: var(--spacing-md);
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+}
+
+/* Step 4: Confirmation */
+.confirmation {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.confirmation-icon {
+    font-size: 5rem;
+    color: var(--success-color);
+    margin-bottom: var(--spacing-lg);
+    animation: scaleIn 0.5s ease-in-out;
+}
+
+.confirmation h3 {
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.confirmation p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.125rem;
+}
+
+.confirmation-details {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.confirmation-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.confirmation-detail i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.payment-status {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.confirmation-id {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+#doneBookingBtn {
+    min-width: 200px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .booking-modal {
+        padding: var(--spacing-lg);
+    }
+
+    .progress-bar {
+        margin: 0 -10px;
+    }
+
+    .payment-methods {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .confirmation-details {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-modal {
+        padding: var(--spacing-md);
+    }
+
+    .step-label {
+        font-size: 0.75rem;
+    }
+
+    .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.875rem;
+    }
+
+    .progress-bar {
+        transform: translateY(-15px);
+    }
+
+    .detail-label {
+        width: 100px;
+    }
+}

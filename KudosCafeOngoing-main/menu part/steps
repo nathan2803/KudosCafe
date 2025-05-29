@@ -1,0 +1,74 @@
+
+to stop the server
+# Find the process using port 3000
+netstat -ano | findstr :3000
+# Kill the process using its PID (replace XXXX with the actual PID)
+taskkill /PID XXXX /F
+
+- Stop Current Server
+
+- We've just stopped the server that was running on port 3000
+- Project Setup in WebStorm
+
+- Open WebStorm
+- Go to File > Open and navigate to your project folder
+- Select the root folder folder for checking and click OK
+- Wait for WebStorm to index the project files
+- Install Dependencies
+
+- Open the terminal in WebStorm (View > Tool Windows > Terminal)
+- Navigate to the menu part directory: cd "menu part"
+- Run npm install to install all dependencies
+- Configure Run Configuration
+
+- Click on 'Add Configuration' in the top right
+- Click the '+' button and select 'Node.js'
+- Set the following configuration:
+  - Node interpreter: Select your Node.js installation
+  - Working directory: Set to the menu part folder
+  - JavaScript file: server.js
+  - Name: Give it a name like "Kudos Server"
+- Run the Server
+
+- Click the green play button in the top right, or
+- Use the keyboard shortcut (Shift+F10 on Windows)
+- The server will start on http://localhost:3000
+- Verify
+
+- Open your browser and navigate to http://localhost:3000
+- You should see your application running
+
+
+if it does not work then try this
+
+- Open the terminal in WebStorm (View > Tool Windows > Terminal)
+- Navigate to the menu part directory: cd "menu part"
+- Run npm install to install all dependencies
+- Configure Run Configuration
+
+- Click on 'Add Configuration' in the top right
+- Click the '+' button and select 'Node.js'
+- Set the following configuration:
+  - Node interpreter: Select your Node.js installation
+  - Working directory: Set to the menu part folder
+  - JavaScript file: server.js
+  - Name: Give it a name like "Kudos Server"
+- Run the Server
+
+- Click the green play button in the top right, or
+- Use the keyboard shortcut (Shift+F10 on Windows)
+- The server will start on
+- The server will start on URL_ADDRESS:4000
+- Verify
+
+- 
+when usin trae do,
+
+
+cd "d:/Personal/SCHOOL/WEB PROG/backups/redesign/kudos_experiment/menu part"
+npm install
+npm start
+
+if error 
+
+netstat -ano | findstr :4000

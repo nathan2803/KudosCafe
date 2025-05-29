@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kudos Café & Resto - Gallery</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header" id="mainHeader">
+        <div class="header-container">
+            <div class="logo-wrapper">
+                <div class="logo-placeholder">
+p                    <!--
+Logo Replacement Instructions:
+1. Replace 'logo%20solo.svg' with your own logo file
+2. Recommended specs:
+   - Format: SVG (vector) or PNG (transparent background)
+   - Dimensions: 200x100px
+   - File size: Under 100KB
+3. Store in the 'images/' directory
+-->
+<img src="images/logo%20solo.svg" alt="Kudos Café & Resto Logo" class="logo-img">
+                </div>
+            </div>
+            <h1 class="restaurant-title">Kudos Café & Resto</h1>
+            <nav class="header-nav" id="headerNav">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#featured" class="nav-link">Featured</a>
+                <a href="index.html#reviews" class="nav-link">Reviews</a>
+                <a href="gallery.html" class="nav-link active">Gallery</a>
+            </nav>
+            <button class="hamburger" id="hamburgerBtn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Gallery Hero Section -->
+        <section id="gallery-hero" class="gallery-hero">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1 class="animate-on-load">Our Culinary Journey</h1>
+                <p class="animate-on-load">Explore the artistry and passion behind every dish at Kudos Café & Resto</p>
+            </div>
+        </section>
+
+        <!-- Gallery Grid Container -->
+        <section class="gallery-grid-container">
+            <h3>Delicious Moments</h3>
+            <div class="interest-grid" id="interestGrid">
+                <!-- 
+Gallery Image Placeholder Instructions:
+1. Replace this section with your own images by modifying the gallery.js file
+2. Recommended image specs:
+   - Format: JPG or PNG
+   - Dimensions: 800x600px (landscape) or 600x800px (portrait)
+   - File size: Under 500KB per image
+3. Store images in the 'images/gallery/' directory
+4. Update the image paths in gallery.js
+-->
+<!-- Gallery items will be dynamically loaded by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-envelope"></i> info@kudoscafe.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kudos Cafe and Resto, Silangang Mayao, Lucena, 4301 Quezon</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Hours</h3>
+                <p>Monday - Friday: 9AM - 10PM</p>
+                <p>Saturday - Sunday: 10AM - 11PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kudos Café & Resto. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

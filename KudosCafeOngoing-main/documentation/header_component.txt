@@ -1,0 +1,70 @@
+Header Component Documentation
+=============================
+
+1. Component Structure
+- Logo placement and responsive sizing
+- Primary navigation links (Home, About, Gallery)
+- Mobile menu toggle button
+
+2. Technical Implementation
+```jsx
+// Header.jsx
+import { useState } from 'react';
+
+export default function Header() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="header">
+      <img src="/logo.svg" alt="Site Logo" className="logo" />
+      <nav className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+        <a href="/#home">Home</a>
+        <a href="/#about">About</a>
+        <a href="/gallery">Gallery</a>
+      </nav>
+      <button 
+        className="menu-toggle"
+        onClick={() => setMenuOpen(!isMenuOpen)}
+      >
+        ☰
+      </button>
+    </header>
+  );
+}
+```
+
+3. Styling Approach
+```css
+/* header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  background: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: white;
+    flex-direction: column;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+}
+```
+
+4. Interactive Features
+- Mobile-responsive menu toggle
+- Active state tracking
+- Smooth transitions for menu opening/closing

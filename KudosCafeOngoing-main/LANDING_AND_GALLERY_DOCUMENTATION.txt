@@ -1,0 +1,260 @@
+# KUDOS CAFÉ & RESTO - LANDING PAGE DOCUMENTATION
+
+## 1. Header Component
+
+### HTML Structure
+```html
+<header class="header" id="mainHeader">
+    <div class="header-container">
+        <div class="logo-wrapper">
+            <div class="logo-placeholder">
+                <img src="images/logo%20solo.svg" alt="Kudos Café & Resto Logo" class="logo-img">
+            </div>
+        </div>
+        <h1 class="restaurant-title">Kudos Café & Resto</h1>
+        <nav class="header-nav" id="headerNav">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#featured" class="nav-link">Featured</a>
+            <a href="#reviews" class="nav-link">Reviews</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="../index.html" class="nav-link">Menu</a>
+        </nav>
+        <button class="hamburger" id="hamburgerBtn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+    </div>
+</header>
+```
+
+## 2. Hero Section
+
+### HTML Implementation
+```html
+<section id="home" class="hero-section" data-bg-image="1">
+    <div class="hero-content">
+        <h1 class="animate-on-load">Welcome to Kudos Café & Resto</h1>
+        <p class="animate-on-load">Experience the perfect blend of taste and ambiance</p>
+        <a href="#featured" class="cta-button animate-on-load">Explore Our Menu</a>
+    </div>
+</section>
+```
+
+### CSS Styling
+```css
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../images/background landing page.jpg') center/cover no-repeat;
+    transform: translateZ(0);
+    perspective: 1000;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: var(--spacing-xl);
+    color: var(--text-light);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+```
+
+## 3. About Section
+
+### HTML Structure
+```html
+<section id="about" class="about-section">
+    <div class="about-header parallax-bg">
+        <div class="overlay"></div>
+        <div class="container">
+            <h2>About Us</h2>
+            <p class="subtitle">Experience excellence in every bite</p>
+        </div>
+    </div>
+    
+    <div class="about-content">
+        <!-- Left Column with Image and Info Card -->
+        <div class="about-left">
+            <div class="about-image main-image">
+                <img src="images/menubg.jpg" alt="Restaurant Interior">
+            </div>
+            <div class="about-info-card">
+                <h3>Kudos Café & Resto</h3>
+                <div class="opening-hours">
+                    <span class="label">Opening Hours:</span>
+                    <p>Monday - Friday: 9AM - 10PM</p>
+                    <p>Saturday - Sunday: 10AM - 11PM</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Column with Text Content -->
+        <div class="about-right">
+            <div class="about-text">
+                <div class="highlight-paragraph">
+                    <p>Established in 2020, Kudos Café & Resto emerged from a passion for creating the perfect blend...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+## 4. Featured Section
+
+### HTML Implementation
+```html
+<section id="featured" class="featured-section">
+    <div class="container">
+        <h2>Featured Dishes</h2>
+        <p class="section-subtitle">Culinary delights that define our menu</p>
+        
+        <div class="featured-grid">
+            <div class="featured-card">
+                <div class="featured-image">
+                    <img src="images/KUDOS/appetizer/hickory wings.jpeg" alt="Hickory Wings">
+                </div>
+                <div class="featured-content">
+                    <h3>Hickory Wings</h3>
+                    <p>Smoky and savory chicken wings</p>
+                    <a href="#" class="view-button">View Details</a>
+                </div>
+            </div>
+            <!-- More featured cards... -->
+        </div>
+    </div>
+</section>
+```
+
+### JavaScript Modal Implementation
+```javascript
+// Modal functionality for dish details
+const modal = document.createElement('div');
+modal.className = 'modal';
+modal.innerHTML = `
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div class="dish-details">
+            <h2 id="modalDishTitle"></h2>
+            <div class="rating" id="modalRating"></div>
+            <p id="modalDescription"></p>
+            <div class="reviews" id="modalReviews"></div>
+        </div>
+    </div>
+`;
+```
+
+## 5. Reviews Section
+
+### HTML Structure
+```html
+<section id="reviews" class="reviews-section">
+    <div class="container">
+        <h2>What Our Customers Say</h2>
+        <p class="section-subtitle">Read about experiences from our valued guests</p>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-image">
+                    <img src="images/reviews/1.jpeg" alt="Happy Customer">
+                </div>
+                <div class="review-content">
+                    <h3>Cozy Atmosphere</h3>
+                    <p>"The ambiance is perfect for both casual meetups and business meetings..."</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- More review cards... -->
+        </div>
+    </div>
+</section>
+```
+
+## 6. Footer Component
+
+### HTML Implementation
+```html
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+            <p><i class="fas fa-envelope"></i> info@kudoscafe.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Kudos Cafe and Resto, Silangang Mayao, Lucena</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Hours</h3>
+            <p>Monday - Friday: 9AM - 10PM</p>
+            <p>Saturday - Sunday: 10AM - 11PM</p>
+        </div>
+    </div>
+</footer>
+```
+
+## Responsive Design Implementation
+
+```css
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-left {
+        order: 2;
+    }
+    
+    .about-right {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .featured-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+```
+
+This documentation provides a comprehensive breakdown of the landing page implementation, focusing on each major component with their respective HTML, CSS, and JavaScript code snippets. The documentation explains the structure, styling, and functionality of each section while maintaining a clean and organized format.

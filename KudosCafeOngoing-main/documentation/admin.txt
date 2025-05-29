@@ -1,0 +1,21 @@
+Admin Page Documentation
+=======================
+
+Functionality:
+- Provides administrative controls for the website
+- May include user management, content editing, and analytics
+- Requires authentication/authorization
+
+Code Structure:
+- Main component in admin.js
+- Uses React for rendering
+- Protected routes for security
+- API calls for data management
+- Styled with CSS modules
+
+How to Run:
+1. Ensure Node.js is installed
+2. Run 'npm install' to install dependencies
+3. Start development server with 'npm run dev'
+4. Admin page will be available at /admin route
+5. Requires proper credentials to access

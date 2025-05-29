@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kudos Café Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/admin-layout.css">
+    <link rel="icon" type="image/svg+xml" href="./images/logo solo.svg">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Kudos Café Admin Panel</h1>
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Bookings</button>
+                <button class="filter-btn" data-filter="today">Today</button>
+                <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                <button class="filter-btn" data-filter="past">Past</button>
+            </div>
+        </div>
+        
+        <div class="bookings-grid">
+            <!-- Bookings will be dynamically inserted here -->
+        </div>
+    </div>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>
